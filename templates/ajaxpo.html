@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayang Habib | Home </title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            get_list();
+        });
+    
+        function get_list() {
+            let url = 'https://my-json-server.typicode.com/jjjosephhh/test-db-001/RealtimeCityAir'
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {},
+                success: function (response) {
+                    let rows = response["row"];
+                    for (let i=0;i<rows.length;i++) {
+                        let name= rows[i]["MSRSTE_NM"];
+                        let dust= rows[i]["IDEX_MVL"];
+                        console.log(name, dust);
+                        if (dust>= 50) {
+                            let html_temp = `<li>${name}: ${dust}</li>`
+                            $("#my-list").append(html_temp)
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <ul id="my-list">
+        
+    </ul>
+</body>
+</html>

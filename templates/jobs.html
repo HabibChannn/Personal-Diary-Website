@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayang Habib | Home </title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .button {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 20px;
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer;
+          background-color: #FF9EAA;
+          color: #ffffff;
+          border: none;
+          border-radius: 6px;
+        }
+        
+        .button:hover {
+          background-color: #FF3FA4;
+        }
+        </style>
+        
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nama Depan</th>
+            <th>Nama Belakang</th>
+            <th>Job</th>
+            <th>Pay</th>
+        </tr>
+    {% for person in people %}
+        <tr>
+            <td>{{ person['fname'] }}</td>
+            <td>{{ person['lname'] }}</td>
+            <td>{{ person['job'] }}</td>
+            <td>{{ person['pay'] }}</td>
+        </tr>
+    {% endfor %}
+    <a href="/" class="button"> Balik ke awal</a>
+</body>
+</html>
